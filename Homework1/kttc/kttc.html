@@ -1,0 +1,989 @@
+<html>
+    <head>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+            body{
+                box-sizing: border-box;
+                font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-size: 14px;
+                margin: 0;
+                color: rgba(0, 0, 0, .8);
+                background: #f1f1f1;
+            }
+
+            .header{
+                display: flex;
+                min-height: 80px;
+                border-bottom: 1px solid #dedede;
+                flex-direction: row;
+                align-items: center;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                padding: 0;
+                background: #fbfbfb url(/assets/kttc/images/bg_v2.svg) ;
+                background-size: cover;
+            }
+
+            .close-button{
+                background-color: transparent;
+                border: none;
+                padding: 10px;
+                margin: 0 20px;
+                position: relative;
+                right: 0;
+                top: 0;
+            }
+
+            .button-wrapper{
+                width: 24px;
+                height: 2px;
+                margin: 10px 0;
+            }
+
+            .button-wrapper:after{
+                display: block;
+                content: "";
+                background-color: #aaaaaa;
+                transform: rotate(45deg);
+                width: 24px;
+                height: 2px;
+                position: absolute;
+            }
+
+            .button-wrapper::before{
+                display: block;
+                content: "";
+                background-color: #aaaaaa;
+                transform: rotate(-45deg);
+                width: 24px;
+                height: 2px;
+                position: absolute;
+            }
+
+            .logo{
+                margin-right: 405.25px;
+            }
+            .search-form{
+                margin-left: 405.25px;
+                margin-right: 15px;
+                display: flex;
+                height: 39.6px;
+                
+            }
+
+            .search-form input{
+                height: 100%;
+                display: inline-block;
+                outline: none;
+                border: 1px solid #cccccc;
+                padding: 0 15px;
+                border-right: none;
+            }
+
+            .search-form select{
+                outline: none;
+                border: 1px solid #cccccc;
+                background-color: transparent;
+                padding: 0 15px;
+            }
+
+            .search-icon{
+                border: 1px solid #cccccc;
+                border-left: none;
+                display: flex;
+            }
+
+            .search-icon img{
+                transform: scale(0.4)
+            }
+            
+            .server-region{
+                opacity: .7;
+                font-size: 18px;
+                color: #1a1a1a;
+                margin-right: 15;
+            }
+
+            .login-panel{
+                border: 1px solid #cbcbcb;
+                background: transparent;
+                line-height: 38px;
+                margin-right: 10px;
+                background-color: transparent;
+            }
+
+            .login-panel a{
+                padding: 0 15px;
+                color: black;
+                margin-top: auto;
+                margin-bottom: auto;
+                text-decoration: none;
+                font-weight: lighter;
+                font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            }
+            
+            .content-wrapper{
+                display: flex;
+                flex-direction: row;
+            }
+
+            .content{
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                justify-content: center;
+                flex-wrap: wrap;
+                width: 100%;
+            }
+            
+            .left-panel{
+                padding: 25px;
+            }
+
+            .left-panel,
+            .first-five-links,
+            .second-seven-links,
+            .information-links,
+            .socials-links{
+                display: flex;
+                flex-direction: column;
+                width: 200px;
+                min-width: 200px;
+            }
+            
+            .left-panel a{
+                text-decoration: none;
+                margin-bottom: 15px;
+            }
+
+            .first-five-links a:first-child{
+                color: red;
+                font-size: 16px;
+                font-weight: bold;
+            }
+
+            .first-five-links a{
+                color: black;
+                font-size: 16px;
+                font-weight: bold;
+            }
+
+            .second-seven-links,
+            .information-links{
+                margin-bottom: 28px;
+            }
+
+            .second-seven-links a{
+                color: #6d6d6d;
+            }        
+
+            .information-links a:first-child{
+                color: #1a1a1a;
+                font-size: 16px;
+                font-weight: bold;
+            }
+
+            .information-links a{
+                color: #6d6d6d;
+            }
+
+            .socials-links a{
+                color: rgb(28, 147, 227);
+            }
+
+            .banner{
+                display: flex;
+                margin-right: auto;
+                margin-left:auto;
+            }
+
+            .ranking-form{
+                box-sizing: border-box;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-content: flex-start;
+                width: 47%;
+                background-color: #fbfbfb;
+                border: 1px solid #dfdfdf;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                padding: 25px;
+                margin: 1.5vw 1.5%;
+            }
+
+            .ranking-form ol{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                padding: 0;
+                margin: 0;
+                list-style: none;
+            }
+
+            .ranking-header h2{
+                font-size: 24.5px;
+                line-height: 1.75em;
+                letter-spacing: -0.025em;
+                color: #47463f;
+                margin: 0;
+            }
+
+            .ranking-header p{
+                font-size: 17.5px;
+                color: #999999;
+                margin: 0;
+                margin-bottom: 17.5px;
+            }
+
+            .ranking-form li{
+                box-sizing: border-box;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                border-bottom: 1px solid #B1B1B1;
+                counter-increment: step-counter;
+                width: 100%;
+                padding: 5px 0;
+                padding-left: 40px;
+            }
+
+            .ranking-form li:before {
+                content: counter(step-counter);
+                width: 40px;
+                display: inline-block;
+                font-size: 20px;
+                border-radius: 20px;
+                text-align: center;
+                height: 40px;
+                line-height: 39px;
+                font-weight: bold;
+                color: #000000;
+                vertical-align: middle;
+                margin-right: 5px;
+                margin-left: -40px;
+            }
+
+            .ranking-form li:first-child::before{
+                background-color: gold;
+                color: white;
+                font-size: 22px;
+            }
+
+            .ranking-form li:nth-child(2)::before{
+                background-color: silver;
+                color: white;
+                font-size: 22px;
+            }
+
+            .ranking-form li:nth-child(3)::before{
+                background-color: #E8B17A;
+                color: white;
+                font-size: 22px;
+            }
+
+            .ranking-form li:last-child:before{
+                content: none;
+            }
+
+
+            .ranking-form li:last-child{
+                box-sizing: border-box;
+                display: flex;
+                width: 100%;
+                justify-content: flex-end;
+                border-bottom: none;
+                padding-top: 15px;
+            }
+
+            .content .ranking-form:nth-child(5) .left-ranking-part,
+            .content .ranking-form:nth-child(5) .right-ranking-part{
+                padding: 0;
+                padding-left: 10px;
+            }
+
+            .left-ranking-part{
+                display: flex;
+                justify-content: flex-start;
+                flex-direction: row;
+                padding: 9.2px 0;
+                padding-left: 10px;
+                width: 50%;
+            }
+
+            .right-ranking-part{
+                display: flex;
+                justify-content: flex-end;
+                padding: 9.2px 0;
+                width: 50%;
+            }
+
+            .left-ranking-part a,
+            .ranking-form a{
+                text-decoration: none;
+                font-size: 18px;
+                color: #167ac6;
+            }
+
+            .right-ranking-part span:nth-child(odd){
+                color: #c64cff;
+                margin-left: 5px;
+            }
+
+            .right-ranking-part span:nth-child(2){
+                color: #25c2dd;
+                margin-left: 5px;
+            }
+
+            footer{
+                background-color: #f8f8f8;
+                border-top: 1px solid #E5E5E5;
+                color: #999;
+                padding-top: 20px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 20px 15px 0;
+                box-sizing: border-box;
+            }
+
+            footer ul{
+                display: flex;
+                flex-direction: row;
+                margin-bottom: 20px;
+                flex-wrap: wrap;
+                list-style: none;
+            }
+
+            .footer-info{
+                padding: 0;
+                margin: 0;
+                margin-bottom: 20px;
+                box-sizing: border-box;
+            }
+
+            .footer-info li:last-child{
+                border-left: solid 1px #e0e0e0;
+                padding: 0 0 0 10px;
+                margin: 0 0 0 10px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <div class="close-button">
+                <div class="button-wrapper"></div>
+            </div>
+            <img class="logo" src="assets/kttc/images/kttc_logo.svg">
+            <div class="search-form">
+                <input type="textarea" placeholder="Введите ник или клан">
+                <select>
+                    <option>Ник</option>
+                    <option>Клан</option>
+                </select>
+                <div class="search-icon">
+                    <img src="assets/kttc/images/search.svg">
+                </div>
+            </div>
+            <div class="server-region">
+                Ru
+            </div>
+            <div class="login-panel">
+                <a href="https://lesta.ru/id/signin/?next=%2Fid%2Fopenid%2F2509427848622689821%2F&trust_root=https%3A%2F%2Fapi.tanki.su%2F&sso_notifications=disable&flow=web_view">Войти с Lesta ID</a>
+            </div>
+        </div>
+        <div class="content-wrapper">
+            <div class="left-panel">
+                <div class="first-five-links">
+                    <a href="https://kttc.ru/wot/ru/vip">VIP аккаунт</a>
+                    <a href="https://kttc.ru/wot/ru/info/gunmarks">Отметки на стволах</a>
+                    <a href="https://kttc.ru/wot/ru/info/mastery">Знаки классности</a>
+                    <a href="https://kttc.ru/wot/ru/clans/">Кланы</a>
+                    <a href="https://kttc.ru/wot/ru/top">Топ</a>
+                </div>
+                <div class="second-seven-links">
+                    <a href="https://kttc.ru/wot/ru/top/tanks">Топ по танкам</a>
+                    <a href="https://kttc.ru/wot/ru/top/users">Топ 1000 игроков</a>
+                    <a href="https://kttc.ru/wot/ru/top/international-rating">Международный рейтинг</a>
+                    <a href="https://kttc.ru/wot/ru/top/users-last-month">Топ 1000 игроков (за прошлый месяц)</a>
+                    <a href="https://kttc.ru/wot/ru/top/session">Топ игроков (за последние сессии)</a>
+                    <a href="https://kttc.ru/wot/ru/top/clans">Топ 1000 Кланы</a>
+                    <a href="https://kttc.ru/wot/ru/top/streamers">Статистика стримеров</a>
+                </div>
+                <div class="information-links">
+                    <a href="https://kttc.ru/wot/ru/info">Информация</a>
+                    <a href="https://kttc.ru/wot/ru/info/servers-online">Онлайн</a>
+                    <a href="https://kttc.ru/wot/ru/info/colorscale">Цветовая шкала</a>
+                </div>
+                <div class="socials-links">
+                    <a href="https://t.me/kttc_ru">Наш Telegram</a>
+                    <a href="https://vk.com/kttcru">Наш ВК</a>
+                </div>
+    
+            </div>
+            <div class="content">
+                <div class="banner">
+                    <a href="https://click.track-lesta.ru/BQYH8Zxk">
+                        <img src="assets/kttc/images/KKTC_Combat_Pass_970x250_LG_SPB_MT-1.jpg">
+                    </a>         
+                </div>
+                <section class="ranking-form">
+                    <div class="ranking-header">
+                        <h2>Топ 10 игрков (WN8)</h2>
+                        <p>от 15к боев, ср. ур. техники 9-10</p>
+                    </div>
+                    <ol>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">WoIfHeart</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>5895</span>
+                                <span>28160</span>
+                                <span>(70%)</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/Loisez/">Loisez</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>5816</span>
+                                <span>17760</span>
+                                <span>(68%)</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/Stanlox/">Stanlox</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>5795</span>
+                                <span>34420</span>
+                                <span>(71%)</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/__NIDIN__/">__NIDIN__</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>5629</span>
+                                <span>42057</span>
+                                <span>(72%)</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/Sh0tnik/">Sh0tnik</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>5561</span>
+                                <span>68215</span>
+                                <span>(71%)</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/Diffynder/">Diffynder</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>5539</span>
+                                <span>35928</span>
+                                <span>(70%)</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/Wierer/">Wierer</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>5515</span>
+                                <span>24293</span>
+                                <span>(68%)</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/Summer_hoodrich/">Summer_hoodrich</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>5424</span>
+                                <span>22660</span>
+                                <span>(67%)</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/selael/">selael</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>4995</span>
+                                <span>20522</span>
+                                <span>(67%)</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/Wilf_/">Wilf_</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>4986</span>
+                                <span>23605</span>
+                                <span>(70%)</span>
+                            </span>
+                        </li>
+                        <li>
+                            <a href="https://kttc.ru/wot/ru/top/users/wn8/15000/">Топ 1000 игроков WN8</a>
+                        </li>
+                    </ol>
+                </section>
+                <section class="ranking-form">
+                    <div class="ranking-header">
+                        <h2>Топ 10 игрков (WN8)</h2>
+                        <p>от 15к боев, ср. ур. техники 7-8</p>
+                    </div>
+                    <ol>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/Exord/">Exord</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>6213</span>
+                                <span>20624</span>
+                                <span>(69%)</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/Geksi/">Geksi</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>5563</span>
+                                <span>43143</span>
+                                <span>(69%)</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/Delkonix/">Delkonix</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>5403</span>
+                                <span>15693</span>
+                                <span>(68%)</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/iMeeGo/">iMeeGo</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>5323</span>
+                                <span>39210</span>
+                                <span>(67%)</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/Straik/">Straik</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>5316</span>
+                                <span style="color: #c64cff;">73824</span>
+                                <span>(72%)</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/GODS_/">GODS_</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>5128</span>
+                                <span>24231</span>
+                                <span>(64%)</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/KornepIod/">KornepIod</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>5005</span>
+                                <span>28366</span>
+                                <span>(66%)</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/Lucky_Bloke/">Lucky_Bloke</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>5002</span>
+                                <span>39149</span>
+                                <span>(65%)</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/kttc_rename_33571698/">kttc_rename_33571698</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>4993</span>
+                                <span>19546</span>
+                                <span>(67%)</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/_AnaboIic_/">_AnaboIic_</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>4980</span>
+                                <span>23090</span>
+                                <span>(65%)</span>
+                            </span>
+                        </li>
+                        <li>
+                            <a href="https://kttc.ru/wot/ru/top/users/wn8/15000/">Топ 1000 игроков WN8</a>
+                        </li>
+                    </ol>
+                </section>
+                <section class="ranking-form">
+                    <div class="ranking-header">
+                        <h2>Топ 10 игрков (WN8)</h2>
+                        <p>от 15к боев, ср. ур. техники 1-6</p>
+                    </div>
+                    <ol>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/Bad_for_enemy_team/">Bad_for_enemy_team</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>9135</span>
+                                <span>15126</span>
+                                <span>(81%)</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/KPblC_A/">KPblC_A</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>7263</span>
+                                <span>27774</span>
+                                <span>(82%)</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/Camper_Antilooser/">Camper_Antilooser</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>6325</span>
+                                <span>16838</span>
+                                <span>(70%)</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/VOLKOV_82/">VOLKOV_82</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>4869</span>
+                                <span>37588</span>
+                                <span>(74%)</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/O_GENRY/">O_GENRY</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>4757</span>
+                                <span>28048</span>
+                                <span>(67%)</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/O__HECMEPTHbIu__/">O__HECMEPTHbIu__</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>4750</span>
+                                <span>32829</span>
+                                <span>(93%)</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/KyponaTkuH/">KyponaTkuH</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>4562</span>
+                                <span>15669</span>
+                                <span>(65%)</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/kttc_rename_125581623/">kttc_rename_125581623</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>4510</span>
+                                <span>16323</span>
+                                <span>(74%)</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/Ukroos/">Ukroos</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>4443</span>
+                                <span>34985</span>
+                                <span style="color: #25c2dd;">(63%)</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/Nikulia_metkiy/">Nikulia_metkiy</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>4351</span>
+                                <span>26401</span>
+                                <span>(88%)</span>
+                            </span>
+                        </li>
+                        <li>
+                            <a href="https://kttc.ru/wot/ru/top/users/wn8/15000/">Топ 1000 игроков WN8</a>
+                        </li>
+                    </ol>
+                </section>
+                <section class="ranking-form">
+                    <div class="ranking-header">
+                        <h2>Лучшие 10 кланов (WN8)</h2>
+                        <p>от 90 игроков</p>
+                    </div>
+                    <ol>
+                        <li>
+                            <span class="left-ranking-part">
+                                <img src="https://lesta.ru/clans/media/clans/emblems/cl_249/474249/emblem_64x64.png" style="width: 32px; height: 32px;background-color: #31DDE9;border-radius: 100px;" />&nbsp;&nbsp;
+                                <span class="clanNameStat" style="color: #31DDE9;">
+                                    [<a href="/wot/ru/clan/474249/">ERETC</a>]
+                                </span>&nbsp;&nbsp;
+                            </span>
+                            <span class="right-ranking-part">
+                                <span style="color:#c64cff">3616</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <img src="https://lesta.ru/clans/media/clans/emblems/cl_079/63079/emblem_64x64.png" style="width: 32px; height: 32px;background-color: #FFD700;border-radius: 100px;" />&nbsp;&nbsp;
+                                <span class="clanNameStat" style="color: #FFD700;">
+                                    [<a href="/wot/ru/clan/63079/">MAX-T</a>]
+                                </span>&nbsp;&nbsp;
+                            </span>
+                            <span class="right-ranking-part">
+                                <span style="color:#c64cff">3514</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <img src="https://lesta.ru/clans/media/clans/emblems/cl_842/418842/emblem_64x64.png" style="width: 32px; height: 32px;background-color: #9A1AFB;border-radius: 100px;" />&nbsp;&nbsp;
+                                <span class="clanNameStat" style="color: #9A1AFB;">
+                                    [<a href="/wot/ru/clan/418842/">ASUPA</a>]
+                                </span>&nbsp;&nbsp;
+                            </span>
+                            <span class="right-ranking-part">
+                                <span style="color:#c64cff">3313</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <img src="https://lesta.ru/clans/media/clans/emblems/cl_152/475152/emblem_64x64.png" style="width: 32px; height: 32px;background-color: #2917EC;border-radius: 100px;" />&nbsp;&nbsp;
+                                <span class="clanNameStat" style="color: #2917EC;">
+                                    [<a href="/wot/ru/clan/475152/">ALEN1</a>]
+                                </span>&nbsp;&nbsp;
+                            </span>
+                            <span class="right-ranking-part">
+                                <span style="color:#25c2dd">3195</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <img src="https://lesta.ru/clans/media/clans/emblems/cl_381/23381/emblem_64x64.png" style="width: 32px; height: 32px;background-color: #FC0000;border-radius: 100px;" />&nbsp;&nbsp;
+                                <span class="clanNameStat" style="color: #FC0000;">
+                                    [<a href="/wot/ru/clan/23381/">CYS</a>]
+                                </span>&nbsp;&nbsp;
+                            </span>
+                            <span class="right-ranking-part">
+                                <span style="color:#25c2dd">3183</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <img src="https://lesta.ru/clans/media/clans/emblems/cl_058/104058/emblem_64x64.png" style="width: 32px; height: 32px;background-color: #A302FF;border-radius: 100px;" />&nbsp;&nbsp;
+                                <span class="clanNameStat" style="color: #A302FF;">
+                                    [<a href="/wot/ru/clan/104058/">T-MAN</a>]
+                                </span>&nbsp;&nbsp;
+                            </span>
+                            <span class="right-ranking-part">
+                                <span style="color:#25c2dd">2939</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <img src="https://lesta.ru/clans/media/clans/emblems/cl_406/601406/emblem_64x64.png" style="width: 32px; height: 32px;background-color: #FF0000;border-radius: 100px;" />&nbsp;&nbsp;
+                                <span class="clanNameStat" style="color: #FF0000;">
+                                    [<a href="/wot/ru/clan/601406/">XOT</a>]
+                                </span>&nbsp;&nbsp;
+                            </span>
+                            <span class="right-ranking-part">
+                                <span style="color:#25c2dd">2903</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <img src="https://lesta.ru/clans/media/clans/emblems/cl_982/56982/emblem_64x64.png" style="width: 32px; height: 32px;background-color: #8307BD;border-radius: 100px;" />&nbsp;&nbsp;
+                                <span class="clanNameStat" style="color: #8307BD;">
+                                    [<a href="/wot/ru/clan/56982/">CM-1</a>]
+                                </span>&nbsp;&nbsp;
+                            </span>
+                            <span class="right-ranking-part">
+                                <span style="color:#25c2dd">2889</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <img src="https://lesta.ru/clans/media/clans/emblems/cl_406/21406/emblem_64x64.png" style="width: 32px; height: 32px;background-color: #FFFF00;border-radius: 100px;" />&nbsp;&nbsp;
+                                <span class="clanNameStat" style="color: #FFFF00;">
+                                    [<a href="/wot/ru/clan/21406/">CHESS</a>]
+                                </span>&nbsp;&nbsp;
+                            </span>
+                            <span class="right-ranking-part">
+                                <span style="color:#25c2dd">2876</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <img src="https://lesta.ru/clans/media/clans/emblems/cl_339/213339/emblem_64x64.png" style="width: 32px; height: 32px;background-color: #FF0808;border-radius: 100px;" />&nbsp;&nbsp;
+                                <span class="clanNameStat" style="color: #FF0808;">
+                                    [<a href="/wot/ru/clan/213339/">R-BOY</a>]
+                                </span>&nbsp;&nbsp;
+                            </span>
+                            <span class="right-ranking-part">
+                                <span style="color:#25c2dd">2852</span>
+                            </span>
+                        </li>
+                        <li>
+                            <a href="https://kttc.ru/wot/ru/top/clans/wn8/90/">Топ 1000 кланов WN8</a>
+                        </li>
+                    </ol>
+                </section>
+                <section class="ranking-form">
+                    <div class="ranking-header">
+                        <h2>Топ 10 игрков (за прошлый месяц)</h2>
+                        <p>от 100 боев</p>
+                    </div>
+                    <ol>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/_Hukuma_/">_Hukuma_</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>10200</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/Gryberll/">Gryberll</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>9813</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/FuriousGFX/">FuriousGFX</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>9292</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/Yamamoto/">Yamamoto</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>9243</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/_STELS_rus/">_STELS_rus</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>8812</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/_YOK_trovo_exTenezar/">_YOK_trovo_exTenezar</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>8761</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/LarryWilliams/">LarryWilliams</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>8671</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/D0N_PEDR0_/">D0N_PEDR0_</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>8273</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/Samter/">Samter</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>8192</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="left-ranking-part">
+                                <a href="https://kttc.ru/wot/ru/user/XeX_He_TaK/">XeX_He_TaK</a>
+                            </span>
+                            <span class="right-ranking-part">
+                                <span>8148</span>
+                            </span>
+                        </li>
+                        <li>
+                            <a href="https://kttc.ru/wot/ru/top/users-last-month/wn8/100/">Топ 1000 игроков (за прошлый месяц) WN8</a>
+                        </li>
+                    </ol>
+                </section>
+            </div>
+        </div>
+        <footer>
+            <ul class="footer-info">
+                <li>© 2013 - 2023 KTTC. Все права защищены. 12+</li>
+                <li><span>С 2013-2020 года Официальный фан ресурс</span>&nbsp;World of Tanks. С 2020 года не являемся такими.</li>
+            </ul>
+            <div style="margin-bottom: 20px;">hi@kttc.ru</div>
+        </footer>
+    </body>
+</html>
